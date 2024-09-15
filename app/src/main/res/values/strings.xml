@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">20240915_manuelroa</string>
+    <string name="agregarJuguete">Agregar Juguete</string>
+    <string name="etJuguete">Título del Juguete</string>
+    <string name="etPrecio">Precio</string>
+
+</resources>
