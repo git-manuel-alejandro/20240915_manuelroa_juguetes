@@ -3,5 +3,7 @@
     <string name="agregarJuguete">Agregar Juguete</string>
     <string name="etJuguete">Título del Juguete</string>
     <string name="etPrecio">Precio</string>
+    <string name="Juguetes">Juguetes</string>
+
 
 </resources>
