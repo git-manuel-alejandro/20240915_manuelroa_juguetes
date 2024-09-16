@@ -2,6 +2,7 @@
 <com.google.android.material.card.MaterialCardView
 
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -13,49 +14,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp"
-        >
+        android:padding="15dp">
 
         <RelativeLayout
-            android:layout_width="match_parent"
+            android:layout_width="210dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="10dp"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tvTituloJuguete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/etJuguete"
                 android:textColor="@color/celeste"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:textStyle="bold">
 
             </TextView>
 
             <ImageView
                 android:id="@+id/ivActualizarJuguete"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_edit"
-                android:layout_marginEnd="30dp"
-
-
                 android:layout_width="25dp"
-                android:layout_height="25dp">
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+
+
+                android:layout_marginEnd="28dp"
+                android:src="@drawable/ic_edit">
 
             </ImageView>
+
 
         </RelativeLayout>
 
         <TextView
             android:id="@+id/tvPrecioJuguete"
-            android:text="@string/etPrecio"
-            android:maxLines="3"
-            android:layout_marginTop="5dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLines="3"
+            android:text="@string/etPrecio">
 
         </TextView>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
