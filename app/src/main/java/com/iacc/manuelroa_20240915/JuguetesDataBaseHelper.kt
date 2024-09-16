@@ -34,31 +34,31 @@ class JuguetesDataBaseHelper(context: Context) : SQLiteOpenHelper(
     }
 
 
-    fun insertJuguete(juguete: Juguete){
+    fun insertJuguete(juguete: Juguete) {
         val db = writableDatabase
 
         val values = ContentValues().apply {
-            put(COLUMN_TITULO , juguete.titulo)
-            put(COLUMN_PRECIO , juguete.precio)
+            put(COLUMN_TITULO, juguete.titulo)
+            put(COLUMN_PRECIO, juguete.precio)
 
         }
 
-        db.insert(TABLE_NAME , null , values)
+        db.insert(TABLE_NAME, null, values)
         db.close()
     }
 
-    fun getAllJuguetes(): List<Juguete>{
+    fun getAllJuguetes(): List<Juguete> {
         val listaJuguetes = mutableListOf<Juguete>()
         val db = readableDatabase
         val query = "SELECT * FROM $TABLE_NAME"
-        val cursor = db.rawQuery(query , null)
+        val cursor = db.rawQuery(query, null)
 
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
             val titulo = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITULO))
             val precio = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PRECIO))
 
-            val juguete = Juguete(id, titulo , precio )
+            val juguete = Juguete(id, titulo, precio)
             listaJuguetes.add(juguete)
         }
 
@@ -68,4 +68,37 @@ class JuguetesDataBaseHelper(context: Context) : SQLiteOpenHelper(
         return listaJuguetes
 
     }
+
+    fun getIdJuguete(id: Int) : Juguete{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $id"
+        val cursor = db.rawQuery(query , null)
+
+        cursor.moveToFirst()
+
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val titulo = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITULO))
+        val precio = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PRECIO))
+
+        cursor.close()
+        db.close()
+
+        return Juguete(id, titulo , precio)
+    }
+
+    fun updateJuguete(juguete: Juguete){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TITULO , juguete.titulo)
+            put(COLUMN_PRECIO , juguete.precio)
+
+        }
+        val whereClauses = "${COLUMN_ID} = ?"
+        val whereArgs = arrayOf(juguete.id.toString())
+        db.update(TABLE_NAME ,values , whereClauses , whereArgs)
+        db.close()
+    }
+
+
+
 }

@@ -46,7 +46,7 @@
             android:id="@+id/etJugueteNombreActualizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nuevo titulo"
+            android:hint="@string/txtActualizarJuguete"
             android:maxLines="1"
             android:textSize="20sp" />
 
@@ -65,7 +65,7 @@
             android:id="@+id/etPrecioJugueteActualizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/etPrecio"
+            android:hint="@string/txtActualizarJuguete"
             android:textSize="20sp"
             android:ems="10"
             android:inputType="number"
