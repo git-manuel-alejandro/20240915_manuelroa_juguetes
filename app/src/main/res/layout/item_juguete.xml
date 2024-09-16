@@ -33,6 +33,18 @@
 
             </TextView>
 
+            <ImageView
+                android:id="@+id/ivActualizarJuguete"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_edit"
+                android:layout_marginEnd="30dp"
+
+
+                android:layout_width="25dp"
+                android:layout_height="25dp">
+
+            </ImageView>
+
         </RelativeLayout>
 
         <TextView
